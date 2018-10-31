@@ -1,12 +1,16 @@
-Summary
+# Web Crawler
 
-Your seed urls i.e. urls in your first frontier
-	http://www.basketball-reference.com/awards/nba_50_greatest.html
-	http://www.basketball-reference.com/leaders/per_career.html
+## Initializing the Crawl
+The seed urls i.e. urls in the first frontier are
+```http://www.basketball-reference.com/awards/nba_50_greatest.html```
 
-	http://en.wikipedia.org/wiki/Michael_Jordan
-	http://www.biography.com/people/michael-jordan-9358066
+```http://www.basketball-reference.com/leaders/per_career.html```
 
+```http://en.wikipedia.org/wiki/Michael_Jordan```
+
+```http://www.biography.com/people/michael-jordan-9358066```
+
+## Results
 Count of unique urls indexed individually
 18693
 
@@ -25,7 +29,8 @@ Count of unique urls in Merged Index
 Merged ES index size
 5.3gb
 
-How do you decide which links to put in your Frontier list and which to ignore.
+## Method
+### How do you decide which links to put in your Frontier list and which to ignore.
 1. The outlinks are canonicalized and then the outlinks are checked if they belong to any of the keywords in the list of keywords.
 2. Those which belong to the keywords are sent to the prioritizer.
 3. In prioritizer, each outlink is given a priority of 1 (least)
@@ -33,7 +38,7 @@ How do you decide which links to put in your Frontier list and which to ignore.
 5. Each outlink's priority is added to the length of values(X) thereby increasing the priority number
 6. Those links with priority still 1 are discarded.
 
-How do you decide which link to crawl next, from your Frontier list.
+### How do you decide which link to crawl next, from your Frontier list.
 1. Each link is checked with a set (visited_links) and if it is not in visitedlinks, it is considered for crawling
 2. In Crawling, each link's robots.txt file is checked to see if the link is allowed or disallowed to crawl and crawled if it is allowed
 3. After knowing the link is allowed to crawl, the time delay is read for each link
